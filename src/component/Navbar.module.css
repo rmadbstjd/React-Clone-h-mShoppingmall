@@ -1,0 +1,36 @@
+* {
+    margin : 0px;
+    padding : 0px;
+}
+.loginButton {
+    display : flex;
+    justify-content: flex-end;
+    margin : 20px;    
+}
+.navSection {
+    display : flex;
+    justify-content: center;
+}
+.menuList {
+    display : flex;
+    list-style-type : none;
+    margin-right : 170px;
+    height: 33px;
+
+}
+.menuList li {
+    padding : 0px 10px 0px 10px;
+    height: 33px;
+}
+.searchBar {
+    
+    display: flex;
+    
+    height : 20px;
+    
+}
+.menuSection{
+    height: 33px;
+    display : flex;
+    justify-content: flex-end;
+}
