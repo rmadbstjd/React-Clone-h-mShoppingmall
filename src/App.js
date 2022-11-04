@@ -5,25 +5,45 @@ import ProductAll from "./page/ProductAll";
 import Login from "./page/Login";
 import ProductDetail from "./page/ProductDetail";
 import Root from "./page/Root";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useState, useEffect } from "react";
 function App() {
+  const [auth, setAuth] = useState(false);
+  const [productList, setProductList] = useState([]);
+  const [select, setSelect] = useState(null);
+  useEffect(() => {}, [auth]); //로그인 여부
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Root />,
       children: [
-        { index: true, element: <ProductAll /> },
-        { path: "/login", element: <Login /> },
-        { path: "/product/:id", element: <ProductDetail /> },
+        {
+          index: true,
+          element: (
+            <ProductAll
+              auth={auth}
+              productList={productList}
+              setProductList={setProductList}
+              select={select}
+              setSelect={setSelect}
+            />
+          ),
+        },
+        { path: "/login", element: <Login auth={auth} setAuth={setAuth} /> },
+        {
+          path: "/product/:id",
+          element: <ProductDetail productList={productList} select={select} />,
+        },
       ],
     },
-    {
-      path: "/login",
-      element: <Login />,
+    /*{
+      path: "/login", 
+      element: <Login auth={auth} setAuth={setAuth} />,
     },
     {
       path: "/product/:id",
       element: <ProductDetail />,
-    },
+    },*/
   ]);
   return <RouterProvider router={router}></RouterProvider>;
 }

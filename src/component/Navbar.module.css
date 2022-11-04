@@ -5,7 +5,8 @@
 .loginButton {
     display : flex;
     justify-content: flex-end;
-    margin : 20px;    
+    margin : 20px;
+    cursor:pointer;
 }
 .navSection {
     display : flex;
@@ -14,7 +15,7 @@
 .menuList {
     display : flex;
     list-style-type : none;
-    margin-right : 170px;
+    
     height: 33px;
 
 }
@@ -23,14 +24,13 @@
     height: 33px;
 }
 .searchBar {
-    
-    display: flex;
-    
+    position:fixed;
+    margin-left : 1700px;
     height : 20px;
     
 }
 .menuSection{
     height: 33px;
     display : flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
