@@ -7,10 +7,11 @@ import ProductDetail from "./page/ProductDetail";
 import Root from "./page/Root";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState, useEffect } from "react";
+import PrivateRoute from "./route/PrivateRoute";
 function App() {
   const [auth, setAuth] = useState(false);
   const [productList, setProductList] = useState([]);
-  const [select, setSelect] = useState(null);
+
   useEffect(() => {}, [auth]); //로그인 여부
   const router = createBrowserRouter([
     {
@@ -24,15 +25,15 @@ function App() {
               auth={auth}
               productList={productList}
               setProductList={setProductList}
-              select={select}
-              setSelect={setSelect}
             />
           ),
         },
+
         { path: "/login", element: <Login auth={auth} setAuth={setAuth} /> },
+
         {
           path: "/product/:id",
-          element: <ProductDetail productList={productList} select={select} />,
+          element: <PrivateRoute auth={auth} />,
         },
       ],
     },
